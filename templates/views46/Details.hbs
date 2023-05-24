@@ -1,0 +1,59 @@
+<html>
+    <head>
+        
+        <title>Review Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link href="/css46/detailsStyle.css" rel='stylesheet' type='text/css' />
+      
+       
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(window).scroll(function(){
+                if ($(window).scrollTop() >= 350) {
+                    $('nav').addClass('fixed-header');
+                    $('nav div').addClass('visible-title');
+                }
+                else {
+                    $('nav').removeClass('fixed-header');
+                    $('nav div').removeClass('visible-title');
+                }
+            });
+        </script>
+
+        <header>
+        
+            <div class="header-banner" style="background-image: url({{review.locationPhotoPath}});">
+                <h1>Visit {{review.place}}</h1>
+            </div>
+            <div class="clear"></div>
+            <nav class="stick">
+                <div class="site-title">{{place}}</div>
+                <ul >
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/review">Review</a></li>
+                    <li><a href="/photos">Photos</a></li>
+                <ul>
+            </nav>
+        </header>
+             
+        <section class="content">
+            {{#with review}}
+            <article>
+                <div class="customerWrapper" style="display:block;height: 130px;margin-bottom: 5px;">
+                    <img src={{userPhotoPath}} style="width: 115px;display:block;float:left;" alt=" " class="img-fluid rounded"><p class="placeName my-2"style="display:block;line-height: 5em;font-size: 25px;
+                ">{{name}}</p>
+                </div>
+
+                {{reviewMessage}}
+               
+            </article>
+            {{/with}}
+        </section> 
+        
+    </body>
+   
+      
+</html>
